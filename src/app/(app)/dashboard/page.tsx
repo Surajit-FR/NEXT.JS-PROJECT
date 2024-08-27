@@ -40,7 +40,7 @@ function UserDashboard() {
     const fetchAcceptMessages = useCallback(async () => {
         setIsSwitchLoading(true);
         try {
-            const response = await axios.get<ApiResponse>('/api/accept-messages');            
+            const response = await axios.get<ApiResponse>('/api/accept-messages');
             setValue('acceptMessages', response.data.isAcceptingMessages);
         } catch (error) {
             const axiosError = error as AxiosError<ApiResponse>;
@@ -180,7 +180,7 @@ function UserDashboard() {
                 {messages.length > 0 ? (
                     messages.map((message, index) => (
                         <MessageCard
-                            key={message._id}
+                            key={index}
                             message={message}
                             onMessageDelete={handleDeleteMessage}
                         />
